@@ -122,6 +122,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20214245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20214246}
+  - component: {fileID: 20214247}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20214246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20214245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20214247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20214245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e5eee97238d3542b38055b0645786e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 7224941319698076232, guid: 5ddcb14281a5a404d9891146c242993a, type: 3}
+  _poolSize: 100
 --- !u!1 &282802110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 3881087802262494036}
+  _inputDelay: 0.1
 --- !u!114 &1112580901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _point: {fileID: 1267209701}
-  _damage: 10
+  _bulletPool: {fileID: 20214247}
   _frequency: 300
 --- !u!114 &1112580903
 MonoBehaviour:
@@ -1318,8 +1365,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.9657476, y: -1.174256}
-  m_Size: {x: 7.5036173, y: 7.5036173}
+  m_Offset: {x: -2.1179929, y: -1.1839644}
+  m_Size: {x: 5.3998675, y: 6.970132}
   m_Direction: 0
 --- !u!1 &1119283858
 GameObject:
@@ -2332,3 +2379,4 @@ SceneRoots:
   - {fileID: 1119283862}
   - {fileID: 1400968356}
   - {fileID: 591066526}
+  - {fileID: 20214246}
