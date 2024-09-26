@@ -4,6 +4,8 @@ using System.Collections;
 
 public class WeaponInput : MonoBehaviour
 {
+    private const float DeadZone = 0.3f;
+
     [SerializeField] private Joystick _joystick;
     [SerializeField] private float _inputDelay;
 
@@ -11,7 +13,7 @@ public class WeaponInput : MonoBehaviour
 
     private void Update()
     {
-        if (Mathf.Abs(_joystick.Vertical) > 0.3f || Mathf.Abs(_joystick.Horizontal) > 0.3f)
+        if (CanShoot(_joystick.Horizontal) || CanShoot(_joystick.Vertical))
             StartCoroutine(InputDelay());
     }
 
@@ -19,5 +21,13 @@ public class WeaponInput : MonoBehaviour
     {
         yield return new WaitForSeconds(_inputDelay);
         Shooted?.Invoke();
+    }
+
+    private bool CanShoot(float direction)
+    {
+        if (Mathf.Abs(direction) > DeadZone)
+            return true;
+
+        return false;
     }
 }
