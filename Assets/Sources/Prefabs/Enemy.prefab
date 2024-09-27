@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 407317739165902590}
-  - component: {fileID: 6081516955466361367}
   - component: {fileID: 2207661619556649961}
+  - component: {fileID: 6857711559348508106}
+  - component: {fileID: 6396251047383010115}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -34,19 +35,6 @@ Transform:
   - {fileID: 1532781642988527269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6081516955466361367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795681910855884864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67bbf3378c9f7d448c67bfebd09fd83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 30
 --- !u!70 &2207661619556649961
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -79,9 +67,47 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011928916, y: 0.02790165}
-  m_Size: {x: 1.6742165, y: 1.9342093}
+  m_Offset: {x: -0.011928916, y: 0.9}
+  m_Size: {x: 1.6742165, y: 2.22}
   m_Direction: 0
+--- !u!114 &6857711559348508106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795681910855884864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5df5b502ff1d44e821464c814c1cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 6396251047383010115}
+  _player: {fileID: 0}
+  _startHealth: 30
+  _damage: 5
+--- !u!195 &6396251047383010115
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795681910855884864}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.4
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.88
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3180493917430779928
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 3180493917430779928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 132ee64e248b3274b8586b156798d2cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
