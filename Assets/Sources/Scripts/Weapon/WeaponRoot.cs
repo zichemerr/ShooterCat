@@ -5,6 +5,12 @@ public class WeaponRoot : MonoBehaviour
     [SerializeField] private WeaponInput _weaponInput;
     [SerializeField] private Weapon _weapon;
     [SerializeField] private WeaponSounds _sound;
+    [SerializeField] private BulletPool _bulletPool;
+
+    public void Init()
+    {
+        _weapon.Init(_bulletPool);
+    }
 
     private void OnEnable()
     {

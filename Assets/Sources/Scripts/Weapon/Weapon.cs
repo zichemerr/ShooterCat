@@ -3,10 +3,16 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Transform _point;
-    [SerializeField] private BulletPool _bulletPool;
     [SerializeField, Min(1)] private float _frequency = 1;
 
+    private BulletPool _bulletPool;
     private float _lastShootTime;
+
+    public void Init(BulletPool bulletPool)
+    {
+        _bulletPool = bulletPool;
+        _bulletPool.Init();
+    }
 
     public bool CanShoot()
     {

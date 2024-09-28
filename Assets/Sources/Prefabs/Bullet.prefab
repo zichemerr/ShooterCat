@@ -165,4 +165,4 @@ MonoBehaviour:
   _transform: {fileID: 7681815391814736159}
   _delay: 5
   _speed: 10
-  _damage: 10
+  _damage: 40
