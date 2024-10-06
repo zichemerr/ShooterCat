@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Health : MonoBehaviour, IDamagable
+public abstract class Health : MonoBehaviour, IDamagable
 {
     [SerializeField] private int _health;
+
+    public event Action Died;
 
     public void TakeDamage(int damage)
     {
@@ -12,7 +15,6 @@ public class Health : MonoBehaviour, IDamagable
         _health -= damage;
 
         if (_health <= 0)
-            Destroy(gameObject);
-    }
+			Died?.Invoke();
+	}
 }
-

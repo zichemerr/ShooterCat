@@ -3,16 +3,21 @@ using System.Collections;
 
 public class EnemyAttacker : MonoBehaviour
 {
-    [SerializeField] private Player _player;
     [SerializeField] private int _damage;
 
+    private Player _player;
     private bool _isAttacking;
+
+    public void Init(Player player)
+    {
+        _player = player;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
         {
-            _isAttacking = true;
+			_isAttacking = true;
             StartCoroutine(Attack());
         }
     }

@@ -3,9 +3,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Transform _point;
+	[SerializeField] private WeaponSounds _sound;
     [SerializeField, Min(1)] private float _frequency = 1;
 
-    private BulletPool _bulletPool;
+	private BulletPool _bulletPool;
     private float _lastShootTime;
 
     public void Init(BulletPool bulletPool)
@@ -25,7 +26,8 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         _bulletPool.GetBullet().Activate(_point);
+        _sound.PlayShoot();
 
-        _lastShootTime = Time.time;
+		_lastShootTime = Time.time;
     }
 }

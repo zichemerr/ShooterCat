@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Health
 {
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private Transform _player;
+	[SerializeField] private EnemyMovement _enemyMovement;
+	[SerializeField] private EnemyAttacker _enemyAttacker;
 
-    private void Start()
-    {
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-    }
+	public void Init(Player player)
+	{
+		_enemyMovement.Init(player.transform);
+		_enemyAttacker.Init(player);
+	}
 
-    private void FixedUpdate()
-    {
-        _agent.SetDestination(_player.position);
-    }
+	private void OnEnable()
+	{
+		Died += OnDied;
+	}
+
+	private void OnDisable()
+	{
+		Died -= OnDied;
+	}
+
+	private void OnDied()
+	{
+		Destroy(gameObject);
+	}
 }

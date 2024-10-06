@@ -1,19 +1,33 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player : Health
 {
-    [SerializeField] private int _health;
+	[SerializeField] private PlayerMovement _playerMovement;
+	[SerializeField] private WeaponInput _weaponInput;
+	[SerializeField] private Weapon _weapon;
+	[SerializeField] private BulletPool _bulletPool;
 
-    public void TakeDamage(int damage)
-    {
-        if (damage <= 0)
-            return;
+	public void Init()
+	{
+		_playerMovement.Init();
+		_weapon.Init(_bulletPool);
+	}
 
-        _health -= damage;
-        Debug.Log(_health);
+	private void OnEnable()
+	{
+		_weaponInput.Shooted += OnShooted;
+	}
 
-        if (_health <= 0)
-            SceneManager.LoadScene(0);
-    }
+	private void OnDisable()
+	{
+		_weaponInput.Shooted -= OnShooted;
+	}
+
+	private void OnShooted()
+	{
+		if (_weapon.CanShoot() == false)
+			return;
+
+		_weapon.Shoot();
+	}
 }
