@@ -1,20 +1,22 @@
 ﻿using System;
-using UnityEngine;
 
-public abstract class Health : MonoBehaviour, IDamagable
+public class Health
 {
-    [SerializeField] private int _health;
+	public event Action ValueChanged;
 
-    public event Action Died;
+	public Health(int value)
+	{
+		Value = value;
+	}
 
-    public void TakeDamage(int damage)
-    {
-        if (damage <= 0)
-            return;
+	public int Value { get; private set; }
 
-        _health -= damage;
+	public void TakeDamage(int damage)
+	{
+		if (damage <= 0)
+			return;
 
-        if (_health <= 0)
-			Died?.Invoke();
+		Value -= damage;
+		ValueChanged?.Invoke();
 	}
 }

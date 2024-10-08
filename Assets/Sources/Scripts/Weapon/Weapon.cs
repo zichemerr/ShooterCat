@@ -3,7 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Transform _point;
-	[SerializeField] private WeaponSounds _sound;
+	[SerializeField] private Sounds _sound;
     [SerializeField, Min(1)] private float _frequency = 1;
 
 	private BulletPool _bulletPool;
