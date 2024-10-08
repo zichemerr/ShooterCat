@@ -6,11 +6,11 @@ public abstract class Unit : MonoBehaviour, IDamagable
     [SerializeField] private int _startHealth;
 
 	private Health _health;
-    private ISounds _sounds;
+    private IUnitSounds _sounds;
 
     public event Action Died;
 
-	protected void Init(ISounds sounds)
+	protected void Init(IUnitSounds sounds)
 	{
 		_health = new Health(_startHealth);
 		_health.ValueChanged += OnValueChanged;

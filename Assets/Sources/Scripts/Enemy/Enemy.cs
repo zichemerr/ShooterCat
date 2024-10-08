@@ -5,7 +5,7 @@ public class Enemy : Unit
 	[SerializeField] private EnemyMovement _enemyMovement;
 	[SerializeField] private EnemyAttacker _enemyAttacker;
 
-	public void Init(Player player, ISounds sounds)
+	public void Init(Player player, IUnitSounds sounds)
 	{
 		Init(sounds);
 		_enemyMovement.Init(player.transform);

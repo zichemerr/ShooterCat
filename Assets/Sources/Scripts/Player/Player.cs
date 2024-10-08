@@ -12,7 +12,7 @@ public class Player : Unit
 	{
 		Init(_sounds);
 		_playerMovement.Init();
-		_weapon.Init(_bulletPool);
+		_weapon.Init(_bulletPool, _sounds);
 	}
 
 	private void OnEnable()

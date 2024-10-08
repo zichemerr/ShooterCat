@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Sounds : MonoBehaviour, ISounds
+public class Sounds : MonoBehaviour, IUnitSounds, IWeaponSounds
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _shoot;
